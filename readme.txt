@@ -1,2 +1,4 @@
-Git is a version control system.
-Git is free software.
+6.29
+完成分工，设计并完善文法
+6.30
+查阅样例，商讨各部分所需函数
