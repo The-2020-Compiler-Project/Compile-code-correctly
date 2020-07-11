@@ -1,0 +1,75 @@
+0  DSEG   SEGMENT
+1  c   DB   ?
+2  b   DB   ?
+3  d   DB   ?
+4  t0   DB   ?
+5  t1   DB   ?
+6  t2   DB   ?
+7  t3   DB   ?
+8  a   DB   ?
+9  s   DB   ?
+10  t4   DB   ?
+11  t5   DB   ?
+12  t6   DB   ?
+13  t8   DB   ?
+14  t9   DB   ?
+15  t10   DB   ?
+16  t11   DB   ?
+17  c   DB   ?
+18  t12   DB   ?
+19  a   DB   ?
+20  DSEG   ENDS
+21  SSEG   SEGMENT   STACK
+22  STK   DB   80H DUP(0)
+23  SSEG   ENDS
+24  CSEG   SEGMENT
+25        ASSUME   CS:DSEG,DS:DSEG
+26  START:   MOV AX,DSEG
+27           MOV DS,AX
+28           MOV AX,0000H
+29  MOV AL,1
+30  MOV c,AL
+31  MOV AL,2.5
+32  MOV b,AL
+33  MOV AL,3
+34  MOV d,AL
+35  MOV AL,b
+36  MUL AL,2
+37  MOV t0,AL
+38  MOV AL,b
+39  ADD AL,d
+40  DIV AL,3
+41  ADD AL,t0
+42  MOV a,AL
+43  MOV AL,dad
+44  MOV AL,a
+45  MOV AL,AL EQ b
+46  MOV t4,AL
+47  MOV AL,c
+48  ADD AL,1
+49  MOV AL,AL GT 2
+50  MOV AL,NOT AL
+51  MOV AL,AL AND t4
+52  IF AL GT 00H
+53  MOV AL,1
+54  MOV c,AL
+55  ELSE
+56  MOV AL,a
+57  ADD AL,b
+58  MOV c,AL
+59  ENDIF
+60  MOV AL,a
+61  MOV AL,AL NE 1
+62  LOOP0: CMP   AL,00H
+63  JBE   OUT0
+64  MOV AL,c
+65  ADD AL,1
+66  MOV c,AL
+67  ADD AL,1
+68  MOV a,AL
+69  JMP   LOOP0
+70  OUT0:
+71  MOV   AH,4CH
+72  INT   21H
+73  CSEG   ENDS
+74        END   START

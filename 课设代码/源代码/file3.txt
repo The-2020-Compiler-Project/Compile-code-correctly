@@ -1,0 +1,15 @@
+int main()
+{
+    float a;
+    float b;
+    float c;
+    string s;
+
+    c=1;
+    b=2.5;
+    d=3;
+    a=b*2;
+    while( a>b&&   !(b<d))
+    {c=1;}
+   
+}##

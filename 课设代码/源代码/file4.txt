@@ -1,0 +1,16 @@
+int main()
+{
+    float a;
+    float b;
+    float c;
+    string s;
+
+    c=1;
+    b=2.5;
+    d=3;
+    a=b*2+(b+d)/3;
+    s="dad";
+    if(a>b&& !(c+1>2))
+    {c=1;}
+   
+}##
